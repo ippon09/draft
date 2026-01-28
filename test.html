@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="box"></div>
+
+
+
+
+
+
+
+    
+		<div class="profileMenu">
+		
+			<button type="button" class="top__menu-part" data-toggle="collapse" data-target="#profileMenu" aria-expanded="false">
+				<div class="account__name">
+					<div class="d-flex gap-3"><img src="/images/personal__account/avatar_personal_info-icon.svg" alt="">
+						@Html.Raw(Model.SurName + " " + Model.FirstName[0] + ". " + Model.PatrName[0] + ".")
+					</div>
+				</div>
+			</button>
+
+			@* <div class="common-menu"> *@
+			<div id="profileMenu" 
+			 class="bottom__menu-part collapse">
+       <div class="profileMenu__inner">
+				<ul class="account__menu__list_items">
+					<li
+						class="account__menu__list_item @(ViewContext.RouteData.Values["Action"].ToString() == "Edit" ? "active" : "")">
+						<a href="/Profile/Edit">
+							<img src="/images/personal__account/personal_info-icon.svg" alt="">
+							Мои данные</a>
+					</li>
+										<li
+						class="account__menu__list_item @(ViewContext.RouteData.Values["Action"].ToString() == "MyStatsScores" ? "active" : "")">
+						<a href="/Profile/MyStatsScores">
+							<img src="/images/personal__account/сoins.svg" alt="">
+							Мои баллы</a>
+					</li>
+
+
+
+
+
+				</ul>
+
+				<p class="account__menu_title">Мои</p>
+				<ul class="account__menu__list_items">
+					<li
+						class="account__menu__list_item @(ViewContext.RouteData.Values["Action"].ToString() == "Clinical" ? "active" : "")">
+						<a href="/Profile/Clinical">
+							<img src="/images/personal__account/clinical_cases-icon.svg" alt="">
+							Мои клинические случаи</a>
+					</li>
+					<li style="display: none;" class="account__menu__list_item"><img
+							src="/images/personal__account/register_patient-icon.svg" alt="">Мои пациенты из
+						регистров</li>
+					<li
+						class="account__menu__list_item @(ViewContext.RouteData.Values["Action"].ToString() == "MyExhibits" ? "active" : "")">
+						<a href="/Profile/MyExhibits">
+							<img src="/images/personal__account/exhibit-icon.svg" alt="">
+							Мои экспонаты
+						</a>
+					</li>
+						<li
+						class="account__menu__list_item @(ViewContext.RouteData.Values["Action"].ToString() == "MyRegisters" ? "active" : "")">
+						<a 
+		
+						asp-action="myRegisters"
+						asp-controller="Profile">
+						
+							<img src="/images/bw_icons/clipboard__icon.svg" alt="">
+							Мои регистры</a>
+					</li>
+					<li style="display: none;" class="account__menu__list_item"><img
+							src="/images/personal__account/offers-icon.svg" alt="">Мои предложения</li>
+
+				</ul>
+				<p class="account__menu_title">Избранное</p>
+				<ul class="account__menu__list_items">
+					<li
+						class="account__menu__list_item @(ViewContext.RouteData.Values["Action"].ToString() == "ClinicalFavorites" ? "active" : "")">
+						<a href="/Profile/ClinicalFavorites">
+							<img src="/images/personal__account/clinical_cases-icon.svg" alt="">
+							Клинические случаи</a>
+					</li>
+					<li
+						class="account__menu__list_item @(ViewContext.RouteData.Values["Action"].ToString() == "RouteDetail" ? "active" : "")">
+						<a href="/Profile/RouteDetail">
+							<img src="/images/personal__account/thematic_routes-icon.svg" alt="">
+							Тематические маршруты</a>
+					</li>
+					<li
+						class="account__menu__list_item @(ViewContext.RouteData.Values["Action"].ToString() == "SelectedExhibits" ? "active" : "")">
+						<a href="/Profile/SelectedExhibits">
+							<img src="/images/personal__account/exhibit-icon.svg" alt="">
+							Экспонаты</a>
+
+					</li>
+					<li
+						class="account__menu__list_item @(ViewContext.RouteData.Values["Action"].ToString() == "SelectedExhibitions" ? "active" : "")">
+						<a href="/Profile/SelectedExhibitions">
+							<img src="/images/personal__account/exhibitions-icon.svg" alt="">
+							Выставки</a>
+					</li>
+					<li
+						class="account__menu__list_item @(ViewContext.RouteData.Values["Action"].ToString() == "Articles" ? "active" : "")">
+						<a href="/Profile/Articles">
+							<img src="/images/personal__account/articles-icon.svg" alt="">
+							Cтатьи</a>
+					</li>
+					<li
+						class="account__menu__list_item @(ViewContext.RouteData.Values["Action"].ToString() == "SelectedVideos" ? "active" : "")">
+						<a href="/Profile/SelectedVideos">
+							<img src="/images/personal__account/video-icon.svg" alt="">
+							Видео</a>
+					</li>
+				</ul>
+
+				<button type="button" data-toggle="modal" data-target="#supportService" style="margin-top: auto"
+					class="d-flex gap-1 secondary-text purple-border-el"><img
+						src="/images/personal__account/offers-icon.svg" alt="">Служба поддержки </button>
+
+
+
+
+
+
+
+
+
+
+
+
+				@* <div class="intro-stiker"> <p class="intro-stiker_text">Скоро открытие!</p></div> *@
+        </div>
+			</div>
+
+			<div class="ProfileManager">
+			                    <div class="top__menu-part">
+                        Кабинет менеджера
+                        @* <div class="account__name">
+                            <div class="d-flex gap-3">
+                            </div>
+
+                        </div> *@
+                        <a href="#" data-toggle="modal" data-target="#logoutModal" style="margin-top: auto"
+                            class="account__menu-btn"><img src="/images/personal__account/menu_prev-icon.svg"
+                                alt="">Выйти
+                            из аккаунта </a>
+                    </div>
+                    <div style="min-height: 716px;" class="bottom__menu-part">
+
+
+
+                        <ul class="account__menu__list_items">
+                            <li class="account__menu__list_item">
+                                <a class="tab__item" href="/manager/profile#main">
+                                    <img src="/images/sponsor/home__icon.svg" alt="">
+                                    Сводные данные</a>
+                            </li>
+                            <li class="account__menu__list_item ">
+                                <a class="tab__item" href="#addingTime">
+                                    <img src="/images/bw_icons/clock__icon.svg" alt="">
+                                    Время на АССИСТ</a>
+                            </li>
+                            <li class="account__menu__list_item ">
+                                <a href="#expertiseQuantity" class="tab__item">
+                                    <img src="/images/bw_icons/book-ad__icon.svg" alt="">
+                                    Количество экспертиз </a>
+                            </li>
+                            <li class="account__menu__list_item ">
+                                <a class="tab__item" href="#entered-patients">
+                                    <img src="/images/icons/bw_icons/smileface__icon.svg" alt="">
+                                    Количество пациентов</a>
+                            </li>
+                            <li class="account__menu__list_item ">
+                                <a class="tab__item" href="#mnnStatistic">
+                                    <img src="/images/icons/bw_icons/layers__icon.svg" alt="">
+                                    Статистика МНН</a>
+                            </li>
+                            <li class="account__menu__list_item ">
+                                <a class="tab__item" href="#drug-interaction">
+                                    <img src="/images/icons/bw_icons/error__icon.svg" alt="">
+                                    Межлекарственные взаимодействия</a>
+                            </li>
+                            <li class="account__menu__list_item ">
+                                <a class="tab__item" href="#anamnesisVsExpertise">
+                                    <img src="/images/icons/bw_icons/list__icon.svg" alt="">
+                                    Анамнез vs экспертиза</a>
+                            </li>
+                            <li class="account__menu__list_item ">
+                                <a class="tab__item" href="#managerRegions">
+                                    <img src="/images/bw_icons/region__icon.svg" alt="">
+                                    
+                                    Регионы</a>
+                            </li>
+                        </ul>
+                        <p class="account__menu_title ">Спонсоры</p>
+
+                        <ul class="account__menu__list_items ">
+                            <li class="account__menu__list_item">
+                                <a class='tab__item' href="#managerSponsor">
+                                    <img src="/images/bw_icons/users__icon.svg" alt="">
+
+                                    
+                                    Спонсоры</a>
+                            </li>
+
+
+                        </ul>
+                        @* <button type="button" data-toggle="modal" data-target="#supportService" style="margin-top: auto"
+                            class="d-flex gap-1 secondary-text purple-border-el"><img
+                                src="/images/sponsor/folder__icon.svg" alt="">Архив </button> *@
+                    </div>
+			</div>
+</div>
+			<div class="bottom__menu-part">
+			<a href="/manager/profile" class="nav-link-without-toggle">
+							Кабинет менеджера
+							</a>
+							
+			</div>
+			<div class="bottom__menu-part">
+			<a href="/sponsor/profile" class="nav-link-without-toggle">
+							Кабинет спонсора
+							</a>
+							
+			</div>
+@* </div> *@
+
+
+		</div>
+
+    <div class="container">
+      sdf
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
+              <th>4</th>
+              <th>5</th>
+              <th>6</th>
+              <th>7</th>
+              <th>8</th>
+              <th>9</th>
+              <th>10</th>
+              <th>11</th>
+              <th>12</th>
+              <th>13</th>
+            </tr>
+          </thead>
+          <tbody>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<div class="box"></div>
+
+<div class="nav-tab">
+  <div class="tab-inner">
+    <p>hello there</p>  
+  </div>
+  <svg width="186" height="144" viewBox="0 0 186 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M156.49 0C158.596 0 160.477 1.32038 161.192 3.30178L185.387 70.3018C185.783 71.3992 185.783 72.6008 185.387 73.6982L161.192 140.698C160.477 142.68 158.596 144 156.49 144H5C2.23858 144 0 141.761 0 139V5C0 2.23857 2.23858 0 5 0H156.49Z" fill="#8A8DFF" />
+</svg>
+</div>
+
+
+<div class="progress-container">
+  <div class="progress-bar" id="progress-bar"></div>
+</div>
+
+<button onclick="increaseProgress()">Увеличить</button>
+
+
+
+<script>
+
+  let progress = 40;
+
+function increaseProgress() {
+  progress += 10;
+  if (progress > 100) progress = 0;
+  document.getElementById('progress-bar').style.width = progress + '%';
+}
+</script>
+
+
+
+<div class="custom-select">
+  <!-- скрытый инпут -->
+  <input type="hidden" name="option" id="customSelectInput" />
+
+  <!-- выбранное значение -->
+  <div class="select-selected">Выберите вариант</div>
+
+  <!-- список -->
+  <ul class="select-items">
+    <li data-value="1">Вариант 1</li>
+    <li data-value="2">Вариант 2</li>
+    <li data-value="3">Вариант 3</li>
+  </ul>
+</div>
+
+<style>
+.custom-select {
+  position: relative;
+  width: 200px;
+  font-family: Arial, sans-serif;
+  user-select: none;
+}
+
+.select-selected {
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.select-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  margin-top: 4px;
+  list-style: none;
+  padding: 0;
+  display: none;
+  z-index: 99;
+}
+
+.select-items li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.select-items li:hover {
+  background: #f0f0f0;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const customSelect = document.querySelector(".custom-select");
+  const selected = customSelect.querySelector(".select-selected");
+  const items = customSelect.querySelector(".select-items");
+  const hiddenInput = customSelect.querySelector("input[type='hidden']");
+
+  selected.addEventListener("click", () => {
+    items.style.display = items.style.display === "block" ? "none" : "block";
+  });
+
+  items.querySelectorAll("li").forEach((item) => {
+    item.addEventListener("click", () => {
+      selected.textContent = item.textContent;
+      hiddenInput.value = item.dataset.value; // значение уходит в инпут
+      items.style.display = "none";
+    });
+  });
+
+  // закрыть при клике вне списка
+  document.addEventListener("click", (e) => {
+    if (!customSelect.contains(e.target)) {
+      items.style.display = "none";
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+    
+  </body>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</html>

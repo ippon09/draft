@@ -1,0 +1,593 @@
+.container {
+    max-width: 1200px;
+    padding: 0 50px;
+    margin: 0 auto;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    padding: 0;
+}
+
+.custom__dropdownn__input {
+    position: relative;
+    width: 500px;
+
+    background: red;
+}
+
+.dropdown__button__wrapper {
+    width: 100%;
+    background: gray;
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown__button {
+    width: 100%;
+}
+
+.dropdown__list {
+    /* display: none; */
+    /* position: absolute; */
+    top: 0;
+    background: pink;
+
+    border-radius: 5px;
+    padding: 15px 10px;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid black;
+}
+
+.dropdown__list-item {
+    list-style-type: none;
+}
+
+.dropdown__list-item input[type='checkbox'] {
+    display: none;
+}
+
+
+#browsers {
+    width: 100%;
+    position: absolute;
+}
+
+.custom_datalist {
+    position: relative;
+    display: inline-block;
+    margin-top: 30px;
+    width: 500px;
+}
+
+.custom_datalist_input {
+    width: 500px;
+    padding: 0;
+    border: 0;
+    background: rgb(108, 106, 106);
+    padding: 10px;
+    box-sizing: border-box;
+
+    border-radius: 15px;
+    background: purple;
+}
+
+.datalist_input_wrapper {
+    width: 100%;
+    background: black;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.custom_datalist_input::placeholder {
+    color: red;
+}
+
+.dropdown_content_list-items {
+    display: none;
+    position: absolute;
+    background: pink;
+    border-radius: 10px;
+    width: 100%;
+    z-index: 1;
+}
+
+.dropdown_content_list-item {
+    list-style-type: none;
+}
+
+.dropdown_content_list-item label {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.dropdown_content_list-item:hover {
+    background: white;
+}
+
+.open {
+    display: block;
+}
+
+.custom-btn {
+    background: purple;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    gap: 10px;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.dropdown_content_list-item_checkbox[type='checkbox'] {
+    /* display: none; */
+}
+
+.slide {
+    height: 100px;
+    width: 600px;
+    background: red;
+    border-radius: 5px;
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    min-width: 0;
+
+}
+
+.inner_right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    width: 100%;
+}
+
+
+
+
+
+
+
+.input-wrapper {
+    position: relative;
+    width: 250px;
+}
+
+input[type="tel"] {
+    width: 100%;
+    padding-right: 30px;
+    padding-left: 10px;
+    height: 35px;
+    font-size: 16px;
+}
+
+.check-icon {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: green;
+    display: none;
+}
+
+.check-icon.visible {
+    display: inline;
+}
+
+
+.progress {
+    position: relative;
+    margin: 4px;
+    float: left;
+    text-align: center;
+}
+
+.barOverflow {
+    /* Wraps the rotating .bar */
+    position: relative;
+    overflow: hidden;
+    /* Comment this line to understand the trick */
+    width: 90px;
+    height: 45px;
+    /* Half circle (overflow) */
+    margin-bottom: -14px;
+    /* bring the numbers up */
+}
+
+.bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90px;
+    height: 90px;
+    /* full circle! */
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 5px solid #eee;
+    /* half gray, */
+    border-bottom-color: #0bf;
+    /* half azure */
+    border-right-color: #0bf;
+}
+
+
+h3 {
+    margin: 0;
+}
+
+/* плеер */
+.player {
+    display: flex;
+    flex-direction: column-reverse;
+    background: gray;
+    padding: 20px;
+}
+
+.current-info__titles {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon-sound {
+    width: 40px;
+    height: 40px;
+}
+
+.handling {
+    display: flex;
+    align-items: center;
+}
+
+.handling-play img {
+    width: 53px;
+}
+
+.handling-sound {
+    position: relative;
+}
+
+.handling-sound img {
+    width: 53px;
+    height: auto;
+}
+
+.handling-sound:hover .volume {
+    opacity: 1;
+}
+
+.volume {
+    opacity: 0;
+    position: absolute;
+    transition: all .5s ease;
+}
+
+.handling-progress {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.progress {
+    position: relative;
+    width: 100%;
+    background: pink;
+    height: 7px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.progress-current {
+    position: absolute;
+    background: red;
+    width: 0%;
+    height: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 10px;
+}
+
+.timeline {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* плеер */
+
+
+.slider-container {
+    background: red;
+}
+
+
+.slider-container {
+    /* overflow: hidden; */
+}
+
+.swiper-container {
+    overflow: visible;
+}
+
+
+
+.transform {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+    background: green;
+    transition: all .5s ease;
+    position: relative;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.box::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    height: 80%;
+    width: 10px;
+    background: red;
+    transform: translateY(-50%);
+}
+
+/* .box:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 100%;
+    height: 100%;
+    background: red;
+    z-index: -1;
+    
+} */
+
+.box2 {
+    width: 300px;
+    height: 300px;
+    background: blue;
+    transition: all .5s ease;
+
+}
+
+
+
+
+
+.change-password {
+    background-color: #e6e6fa;
+    /* светлый фон */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: auto;
+    font-family: sans-serif;
+}
+
+.data_title {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.single-password-line {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+}
+
+.single-password-line .password_wrapper {
+    flex: 1;
+    max-width: 48%;
+    /* чтобы совпадало с полем из двойки */
+}
+
+.password_wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password_wrapper input {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.eye_icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.password-data {
+    display: flex;
+    gap: 20px;
+}
+
+.password-data .password_wrapper {
+    flex: 1;
+}
+
+.boxy-list-items {
+    /* column-count: 3; */
+    columns: 300px;
+}
+
+.boxy-list-item {
+    background: pink;
+    width: 300px;
+    height: 400px;
+    margin-bottom: 5px;
+}
+
+.boxy-list-item2 {
+    background: rgb(173, 102, 114);
+    width: 300px;
+    height: 800px;
+    margin-bottom: 5px;
+}
+
+.testbox {
+    width: 50px;
+    height: 50px;
+    border-top: 50px solid gray;
+    border-right: 50px solid white;
+    border-bottom: 50px solid white;
+    border-left: 50px solid gray;
+}
+
+
+.background-block {
+    padding: 20px;
+    background: green;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.renderbox {
+
+    display: flex;
+    width: 100%;
+    background: green;
+    padding: 20px;
+    box-sizing: border-box;
+
+    p {
+        width: 50%;
+    }
+
+    textarea {
+        /* box-sizing: border-box; */
+        flex-grow: 1;
+    }
+}
+
+
+.list-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.list-item {
+    width: 300px;
+    height: 320px;
+    flex-shrink: 0;
+    background: #eee;
+}
+
+.red {
+    color: red;
+}
+
+
+th,
+td {
+    border: 1px solid black;
+    min-width: 500px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+.nav-tab {
+    position: relative;
+}
+
+.tab-inner {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+
+
+
+
+.progress-container {
+    width: 100%;
+    height: 20px;
+    background-color: #e5f0ff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 40%;
+    /* начальное значение */
+    background: repeating-linear-gradient(-45deg,
+            #7ab7ff,
+            #7ab7ff 10px,
+            #9cc8ff 10px,
+            #9cc8ff 20px);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+    animation: move-stripes 1s linear infinite;
+}
+
+/* @keyframes move-stripes {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 0;
+  }
+} */
+
+
+
+.fileInput-custom__input {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.fileInput-custom__label {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #e0e2e7;
+    border: 1px solid black
+}

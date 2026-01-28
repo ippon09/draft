@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Мультиселект с чекбоксами</title>
+<style>
+body { font-family: Arial, sans-serif; padding: 20px; }
+
+/* Контейнер селекта */
+.select-box {
+  position: relative;
+  width: 250px;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* Видимый блок селекта */
+.select-box .selected {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: #fff;
+}
+
+/* Выпадающий список */
+.select-box .options-container {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-top: none;
+  background: #fff;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+/* Стиль для каждого варианта */
+.select-box .option {
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.select-box .option:hover {
+  background-color: #f0f0f0;
+}
+
+/* Список выбранных значений */
+.selected-list {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.selected-item {
+  display: flex;
+  align-items: center;
+  background-color: #007BFF;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.selected-item span {
+  margin-left: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+
+
+  <div style="background:red; padding: 20px; width: 100px;">
+    <p style="background: green;">Lorem, ipsum.</p>
+  </div>
+
+<h3>Выберите элементы:</h3>
+
+<div class="select-box" id="selectBox">
+  <div class="selected">Выберите...</div>
+  <div class="options-container">
+    <label class="option"><input type="checkbox" value="apple"> Яблоко</label>
+    <label class="option"><input type="checkbox" value="banana"> Банан</label>
+    <label class="option"><input type="checkbox" value="orange"> Апельсин</label>
+    <label class="option"><input type="checkbox" value="grape"> Виноград</label>
+    <label class="option"><input type="checkbox" value="kiwi"> Киви</label>
+  </div>
+</div>
+
+<div class="selected-list" id="selectedList"></div>
+
+<script>
+const selectBox = document.getElementById('selectBox');
+const selectedDiv = selectBox.querySelector('.selected');
+const optionsContainer = selectBox.querySelector('.options-container');
+const checkboxes = optionsContainer.querySelectorAll('input[type="checkbox"]');
+const selectedList = document.getElementById('selectedList');
+
+// Открытие/закрытие списка
+selectedDiv.addEventListener('click', () => {
+  optionsContainer.style.display = optionsContainer.style.display === 'block' ? 'none' : 'block';
+});
+
+// Обновление списка выбранных элементов
+function updateSelectedList() {
+  selectedList.innerHTML = '';
+  checkboxes.forEach(cb => {
+    if(cb.checked){
+      const item = document.createElement('div');
+      item.className = 'selected-item';
+      item.textContent = cb.parentElement.textContent.trim();
+      
+      const removeBtn = document.createElement('span');
+      removeBtn.textContent = '×';
+      removeBtn.addEventListener('click', () => {
+        cb.checked = false;
+        updateSelectedList();
+      });
+
+      item.appendChild(removeBtn);
+      selectedList.appendChild(item);
+    }
+  });
+}
+
+// Событие при изменении чекбокса
+checkboxes.forEach(cb => {
+  cb.addEventListener('change', updateSelectedList);
+});
+
+// Закрытие списка при клике вне селекта
+document.addEventListener('click', (e) => {
+  if(!selectBox.contains(e.target)){
+    optionsContainer.style.display = 'none';
+  }
+});
+</script>
+
+</body>
+</html>
